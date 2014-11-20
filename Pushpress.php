@@ -1,4 +1,9 @@
 <?php
+/*
+ * PushPress SDK
+ * v1.0.0
+ */
+ 
 // This snippet (and some of the curl code) due to the Facebook SDK.
 if (!function_exists('curl_init')) {
   throw new Exception('Pushpress needs the CURL PHP extension.');
