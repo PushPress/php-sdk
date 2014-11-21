@@ -47,11 +47,6 @@ class Pushpress_User extends Pushpress_ApiResource
     $requestor = new Pushpress_ApiRequestor($this->_apiKey);
     $url = $this->instanceUrl() . '/auth';
     
-    echo $url;
-    echo '<bR>params:<bR>';
-    var_dump($params);
-    die();
-    
     list($response, $apiKey) = $requestor->request('post', $url, $params);
     $this->refreshFrom($response, $apiKey);
     return $this;
