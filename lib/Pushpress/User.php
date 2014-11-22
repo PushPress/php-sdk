@@ -2,6 +2,7 @@
 
 class Pushpress_User extends Pushpress_ApiResource
 {
+    
   public static function constructFrom($values, $apiKey=null)
   {
     $class = get_class();
@@ -38,6 +39,7 @@ class Pushpress_User extends Pushpress_ApiResource
     return self::_scopedRetrieveEmpty($class, $id, $apiKey);
   }
   
+  
   public function CreateWaiver($params, $apiKey) {
       
   }
@@ -48,13 +50,14 @@ class Pushpress_User extends Pushpress_ApiResource
     return self::_scopedAll($class, $params, $apiKey);
   }
   
-  public function auth($params=null)
-  {
-    $requestor = new Pushpress_ApiRequestor($this->_apiKey);
-    $url = $this->instanceUrl() . '/auth';
-    
-    list($response, $apiKey) = $requestor->request('post', $url, $params);
-    $this->refreshFrom($response, $apiKey);
-    return $this;
-  }
+    public function auth($params=null) {
+        $class = get_class();
+        $url = self::classUrl($class);
+        $url .= "/auth";
+        $requestor = new Pushpress_ApiRequestor();
+      
+        list($response, $apiKey) = $requestor->request('post', $url, $params);
+        $this->refreshFrom($response, $apiKey);
+        return $this;
+    }
 }
