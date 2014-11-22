@@ -32,6 +32,12 @@ class Pushpress_User extends Pushpress_ApiResource
     return self::_scopedSave($class);
   }
   
+  public static function retrieveEmpty($id=null, $apiKey=null)
+  {      
+    $class = get_class();
+    return self::_scopedRetrieveEmpty($class, $id, $apiKey);
+  }
+  
   public function CreateWaiver($params, $apiKey) {
       
   }
