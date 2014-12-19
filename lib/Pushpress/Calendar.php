@@ -2,7 +2,7 @@
 
 class Pushpress_Calendar extends Pushpress_ApiResource
 {
-    public static function classUrl() {
+    public static function classUrl($class=null) {
         return "/v1/calendar";
     }
     
