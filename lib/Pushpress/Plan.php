@@ -33,6 +33,11 @@ class Pushpress_Plan extends Pushpress_ApiResource
     return self::_scopedSave($class);
   }
   
+  public static function all($params=null, $apiKey=null)
+  {
+    $class = get_class();
+    return self::_scopedAll($class, $params, $apiKey);
+  }
   
   public static function retrieveEmpty($id=null, $apiKey=null)
   {      
