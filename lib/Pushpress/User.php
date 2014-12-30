@@ -60,4 +60,26 @@ class Pushpress_User extends Pushpress_ApiResource
         $this->refreshFrom($response, $apiKey);
         return $this;
     }
+    
+    public function setPin($params=null) {
+        $class = get_class();
+        $url = self::classUrl($class);
+        $url .= "/auth/pin";
+        $requestor = new Pushpress_ApiRequestor();
+      
+        list($response, $apiKey) = $requestor->request('post', $url, $params);
+        $this->refreshFrom($response, $apiKey);
+        return $this;
+    }
+    
+    public function setClient($params=null) {
+        $class = get_class();
+        $url = self::classUrl($class);
+        $url .= "/auth/client";
+        $requestor = new Pushpress_ApiRequestor();
+      
+        list($response, $apiKey) = $requestor->request('post', $url, $params);
+        $this->refreshFrom($response, $apiKey);
+        return $this;
+    }
 }

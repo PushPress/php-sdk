@@ -55,6 +55,7 @@ class Pushpress_Order extends Pushpress_ApiResource
     $requestor = new Pushpress_ApiRequestor($this->_apiKey);
     $url = $this->instanceUrl() . '/refund';
     
+    
     list($response, $apiKey) = $requestor->request('post', $url, $params);
     $this->refreshFrom($response, $apiKey);
     return $this;
