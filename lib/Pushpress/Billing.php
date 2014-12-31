@@ -20,6 +20,7 @@ class Pushpress_Billing extends Pushpress_ApiResource
     return self::_scopedCreate($class, $params, $apiKey);
   }
 
+
   public function delete($params=null)
   {
     $class = get_class();
