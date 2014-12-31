@@ -67,7 +67,18 @@ class Pushpress_Calendar extends Pushpress_ApiResource
         $requestor = new Pushpress_ApiRequestor();
       
         list($response, $apiKey) = $requestor->request('post', $url, $params);
-        return $response;        
+        return self::scopedConstructFrom($class, $response, $apiKey);    
+    }
+    
+    public static function cancelRegistration($id) {
+        $class = get_class();
+        $url = self::classUrl($class);
+        $url .= "/register/$id";
+        $requestor = new Pushpress_ApiRequestor();
+      
+        list($response, $apiKey) = $requestor->request('delete', $url);
+        return self::scopedConstructFrom($class, $response, $apiKey);
+        
     }
   
 }
