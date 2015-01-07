@@ -40,7 +40,9 @@ require(dirname(__FILE__) . '/Pushpress/List.php');
 // Pushpress API Resources
 require(dirname(__FILE__) . '/Pushpress/Billing.php');
 require(dirname(__FILE__) . '/Pushpress/Calendar.php');
+require(dirname(__FILE__) . '/Pushpress/Checkin.php');
 require(dirname(__FILE__) . '/Pushpress/Customer.php');
+
 require(dirname(__FILE__) . '/Pushpress/Invoice.php');
 require(dirname(__FILE__) . '/Pushpress/Message.php');
 require(dirname(__FILE__) . '/Pushpress/Order.php');
