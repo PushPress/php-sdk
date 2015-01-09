@@ -55,5 +55,17 @@ class Pushpress_Client extends Pushpress_ApiResource
         return self::scopedConstructFrom($class, $response, $apiKey);
       
   }
+    
+    public static function referralSources() {
+        $class = get_class();
+        $url = self::classUrl($class);
+        $url .= "/referralsources";
+        $requestor = new Pushpress_ApiRequestor();
+      
+        list($response, $apiKey) = $requestor->request('get', $url);
+        return self::scopedConstructFrom($class, $response, $apiKey);
+      
+        
+    }
    
 }
