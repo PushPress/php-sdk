@@ -1,6 +1,6 @@
 <?php
 
-class Pushpress_Checkin extends Pushpress_ApiResource
+class Pushpress_Client extends Pushpress_ApiResource
 {
     
   public static function constructFrom($values, $apiKey=null)
@@ -44,6 +44,16 @@ class Pushpress_Checkin extends Pushpress_ApiResource
     $class = get_class();
     return self::_scopedRetrieveEmpty($class, $id, $apiKey);
   }
+  
+    public static function settings($type=null) {
+        $class = get_class();
+        $url = self::classUrl($class);
+        $url .= "/settings/$type";
+        $requestor = new Pushpress_ApiRequestor();
+      
+        list($response, $apiKey) = $requestor->request('get', $url);
+        return self::scopedConstructFrom($class, $response, $apiKey);
+      
+  }
    
-
 }
