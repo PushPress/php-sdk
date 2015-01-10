@@ -61,4 +61,14 @@ class Pushpress_Order extends Pushpress_ApiResource
     return $this;
   }
   
+  public function receipt($params=null)
+  {
+    $requestor = new Pushpress_ApiRequestor($this->_apiKey);
+    $url = $this->instanceUrl() . '/receipt';    
+    
+    list($response, $apiKey) = $requestor->request('get', $url, $params);
+    $this->refreshFrom($response, $apiKey);
+    return $this;
+  }
+  
 }
