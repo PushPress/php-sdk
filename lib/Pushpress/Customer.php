@@ -47,6 +47,8 @@ class Pushpress_Customer extends Pushpress_ApiResource
               
         $requestor = new Pushpress_ApiRequestor($this->_apiKey);
         $url = $this->instanceUrl() . '/subscriptions';
+        echo '<bR>url: ' . $url;
+        
         list($response, $apiKey) = $requestor->request('get', $url, $params);
         $this->refreshFrom($response, $apiKey);
         return $this;
