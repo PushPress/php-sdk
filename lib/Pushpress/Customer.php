@@ -44,14 +44,9 @@ class Pushpress_Customer extends Pushpress_ApiResource
   }
   
     public function subscriptions($params=null, $apiKey=null) {
-              echo '<br>getting sub';
+              
         $requestor = new Pushpress_ApiRequestor($this->_apiKey);
-        var_dump($requestor);
-        echo '<pre>';
-        var_dump($this);
-        echo '</pre>';
         $url = $this->instanceUrl() . '/subscriptions';
-        echo '<bR>url: ' . $url;
         
         list($response, $apiKey) = $requestor->request('get', $url, $params);
         $this->refreshFrom($response, $apiKey);
