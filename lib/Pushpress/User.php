@@ -82,4 +82,6 @@ class Pushpress_User extends Pushpress_ApiResource
         $this->refreshFrom($response, $apiKey);
         return $this;
     }
+    
+    
 }

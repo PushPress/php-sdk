@@ -42,4 +42,15 @@ class Pushpress_Customer extends Pushpress_ApiResource
     $class = get_class();
     return self::_scopedAll($class, $params, $apiKey);
   }
+  
+    public function subscriptions($params=null, $apiKey=null) {
+              
+        $requestor = new Pushpress_ApiRequestor($this->_apiKey);
+        $url = $this->instanceUrl() . '/subscriptions';
+        list($response, $apiKey) = $requestor->request('get', $url, $params);
+        $this->refreshFrom($response, $apiKey);
+        return $this;
+  }
+      
+       
 }
