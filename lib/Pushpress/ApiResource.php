@@ -90,11 +90,10 @@ abstract class Pushpress_ApiResource extends Pushpress_Object
     return "/v1/${base}s";
   }
 
-  public function instanceUrl()
-  {
-      $id = $this['id'];    
-    
-    $class = get_class($this);
+    public function instanceUrl()
+    {
+        $id = $this['id'];    
+        $class = get_class($this);
     if (!$id) {
       throw new Pushpress_InvalidRequestError("Could not determine which URL to request: $class instance has invalid ID: $id", null);
     }

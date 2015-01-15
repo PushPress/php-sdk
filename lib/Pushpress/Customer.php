@@ -36,6 +36,16 @@ class Pushpress_Customer extends Pushpress_ApiResource
         
   }
   
+  public function setPin($params=null) {
+        $url = $this->instanceUrl();
+        $url .= "/pin";
+        $requestor = new Pushpress_ApiRequestor();
+      
+        list($response, $apiKey) = $requestor->request('post', $url, $params);
+        $this->refreshFrom($response, $apiKey);
+        return $this;
+    }
+  
   
   public static function all($params=null, $apiKey=null)
   {
