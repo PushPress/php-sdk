@@ -44,7 +44,7 @@ class Pushpress_Customer extends Pushpress_ApiResource
         list($response, $apiKey) = $requestor->request('post', $url, $params);
         $this->refreshFrom($response, $apiKey);
         return $this;
-    }
+  }
   
   
   public static function all($params=null, $apiKey=null)
@@ -66,7 +66,7 @@ class Pushpress_Customer extends Pushpress_ApiResource
               
         $requestor = new Pushpress_ApiRequestor($this->_apiKey);
         $url = $this->instanceUrl() . '/billing';
-        echo $url;
+        
         
         list($response, $apiKey) = $requestor->request('get', $url, $params);
         $this->refreshFrom($response, $apiKey);

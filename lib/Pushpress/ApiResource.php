@@ -148,6 +148,7 @@ abstract class Pushpress_ApiResource extends Pushpress_Object
     
     $url = self::_scopedLsb($class, 'classUrl', $class);
     $url = preg_replace("/(ss)$/", "s", $url);
+    
     list($response, $apiKey) = $requestor->request('get', $url, $params);
     return Pushpress_Util::convertToPushpressObject($response, $apiKey);
   }
