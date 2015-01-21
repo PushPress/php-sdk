@@ -32,7 +32,7 @@ class Pushpress_Message extends Pushpress_ApiResource
     return self::_scopedSave($class);
   }
   
-  public function Send($params, $apiKey=null) {
+  public static function Send($params, $apiKey=null) {
     $class = get_class();
     // self::_validateCall('all', $params, $apiKey);
     $requestor = new Pushpress_ApiRequestor($apiKey);
