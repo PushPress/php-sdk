@@ -42,6 +42,7 @@ require(dirname(__FILE__) . '/Pushpress/Billing.php');
 require(dirname(__FILE__) . '/Pushpress/Calendar.php');
 require(dirname(__FILE__) . '/Pushpress/Checkin.php');
 require(dirname(__FILE__) . '/Pushpress/Client.php');
+require(dirname(__FILE__) . '/Pushpress/Contract.php');
 require(dirname(__FILE__) . '/Pushpress/Customer.php');
 
 require(dirname(__FILE__) . '/Pushpress/Invoice.php');
