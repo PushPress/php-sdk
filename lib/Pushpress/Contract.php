@@ -1,6 +1,6 @@
 <?php
 
-class Pushpress_Contract extends Pushpress_ApiResource
+class Pushpress_Contracts extends Pushpress_ApiResource
 {
     
   public static function constructFrom($values, $apiKey=null)
