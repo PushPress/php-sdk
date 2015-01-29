@@ -4,6 +4,7 @@ abstract class Pushpress_ApiResource extends Pushpress_Object
 {
   protected static function _scopedRetrieve($class, $id=null, $apiKey=null)
   {
+      
     $instance = new $class($id, $apiKey);
     $instance->refresh();
     return $instance;
