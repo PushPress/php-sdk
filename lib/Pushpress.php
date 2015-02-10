@@ -27,7 +27,7 @@ require(dirname(__FILE__) . '/Pushpress/Error/Error.php');
 require(dirname(__FILE__) . '/Pushpress/Error/ApiError.php');
 require(dirname(__FILE__) . '/Pushpress/Error/ApiConnectionError.php');
 require(dirname(__FILE__) . '/Pushpress/Error/AuthenticationError.php');
-require(dirname(__FILE__) . '/Pushpress/Error/InvalidRequestError.php');
+require(dirname(__FILE__) . '/Pushpress/Error/InvalidRequestError.php'); 
 
 // Plumbing
 require(dirname(__FILE__) . '/Pushpress/Object.php');
