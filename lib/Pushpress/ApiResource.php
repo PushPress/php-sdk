@@ -56,6 +56,7 @@ abstract class Pushpress_ApiResource extends Pushpress_Object
   {
     $requestor = new Pushpress_ApiRequestor($this->_apiKey);
     $url = $this->activeUrl();
+    mail("dan@pushpress.com", "Active URL", $url);
     list($response, $apiKey) = $requestor->request('get', $url, $this->_retrieveOptions);
     $this->refreshFrom($response, $apiKey);
     return $this;
