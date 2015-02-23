@@ -9,7 +9,7 @@ class Pushpress_Client extends Pushpress_ApiResource
     return self::scopedConstructFrom($class, $values, $apiKey);
   }
 
-  public static function retrieve($id, $apiKey=null)
+  public static function retrieve($id=null, $apiKey=null)
   {
     $class = get_class();
     return self::_scopedRetrieve($class, $id, $apiKey);

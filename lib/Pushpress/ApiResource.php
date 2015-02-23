@@ -14,6 +14,7 @@ abstract class Pushpress_ApiResource extends Pushpress_Object
   {      
     $requestor = new Pushpress_ApiRequestor($this->_apiKey);
     $url = $this->instanceUrl();
+    
     list($response, $apiKey) = $requestor->request('get', $url, $this->_retrieveOptions);
     $this->refreshFrom($response, $apiKey);
     
@@ -96,9 +97,6 @@ abstract class Pushpress_ApiResource extends Pushpress_Object
     {
         $id = $this['id'];    
         $class = get_class($this);
-    if (!$id) {
-      throw new Pushpress_InvalidRequestError("Could not determine which URL to request: $class instance has invalid ID: $id", null);
-    }
     $id = Pushpress_ApiRequestor::utf8($id);
     $base = $this->_lsb('classUrl', $class);
     $base = preg_replace("/(ss)$/", "s", $base);
