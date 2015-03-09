@@ -57,23 +57,14 @@ class Pushpress_Workout extends Pushpress_ApiResource
     return self::_scopedAll($class, $params, $apiKey);
   }
   
-    public static function register($params=null) {
-        $class = get_class();
-        $url = self::classUrl($class);
-        $url .= "/register";
-        $requestor = new Pushpress_ApiRequestor();
-      
-        list($response, $apiKey) = $requestor->request('post', $url, $params);
-        return self::scopedConstructFrom($class, $response, $apiKey);    
-    }
     
-    public static function cancelRegistration($id) {
+    public static function scoringTypes($id) {
         $class = get_class();
         $url = self::classUrl($class);
-        $url .= "/register/$id";
+        $url .= "/scoringtypes";
         $requestor = new Pushpress_ApiRequestor();
       
-        list($response, $apiKey) = $requestor->request('delete', $url);
+        list($response, $apiKey) = $requestor->request('get', $url);
         return self::scopedConstructFrom($class, $response, $apiKey);
         
     }

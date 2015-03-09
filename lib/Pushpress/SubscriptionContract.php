@@ -1,6 +1,6 @@
 <?php
 
-class Pushpress_Contracts extends Pushpress_ApiResource
+class Pushpress_SubscriptionContracts extends Pushpress_ApiResource
 {
     
   public static function constructFrom($values, $apiKey=null)
@@ -9,10 +9,10 @@ class Pushpress_Contracts extends Pushpress_ApiResource
     return self::scopedConstructFrom($class, $values, $apiKey);
   }
 
-  public static function retrieve($id, $params=array(), $apiKey=null)
+  public static function retrieve($id, $apiKey=null)
   {
     $class = get_class();
-    return self::_scopedRetrieve($class, $id, $apiKey, $params);
+    return self::_scopedRetrieve($class, $id, $apiKey);
   }
 
   public static function create($params=null, $apiKey=null)
@@ -43,24 +43,6 @@ class Pushpress_Contracts extends Pushpress_ApiResource
   {      
     $class = get_class();
     return self::_scopedRetrieveEmpty($class, $id, $apiKey);
-  }
-  
-  public function attachPlans($plan_ids=null)
-  {
-        $url =  $this->instanceUrl() . '/plans';
-        $params = array(
-            "plan_ids" => $plan_ids
-        );
-        $requestor = new Pushpress_ApiRequestor($this->_apiKey);
-        
-        echo $url;
-        echo '<BR>';
-        echo 'Params:<bR>';
-        var_dump($params);
-        
-        list($response, $apiKey) = $requestor->request('post', $url, $params);
-        //$this->refreshFrom(array('subscription' => $response), $apiKey, true);
-        return $response;
   }
    
 

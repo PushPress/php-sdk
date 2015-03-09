@@ -54,6 +54,7 @@ require(dirname(__FILE__) . '/Pushpress/Product.php');
 require(dirname(__FILE__) . '/Pushpress/ProductCategories.php');
 require(dirname(__FILE__) . '/Pushpress/User.php');
 require(dirname(__FILE__) . '/Pushpress/Subscriptions.php');
+require(dirname(__FILE__) . '/Pushpress/SubscriptionContract.php');
 require(dirname(__FILE__) . '/Pushpress/TaxRates.php');
 require(dirname(__FILE__) . '/Pushpress/Waiver.php');
 require(dirname(__FILE__) . '/Pushpress/Workout.php');

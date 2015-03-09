@@ -56,4 +56,18 @@ class Pushpress_Subscriptions extends Pushpress_ApiResource
     return self::_scopedAll($class, $params, $apiKey);
   }
   
+  public function getContract()
+  {
+     $url =  $this->instanceUrl() . '/contracts';
+     $params = array();
+      // echo '<br>options:<br>';
+      // var_dump($params);
+      $requestor = new Pushpress_ApiRequestor($this->_apiKey);
+        
+    list($response, $apiKey) = $requestor->request('get', $url, $params);
+    //$this->refreshFrom(array('subscription' => $response), $apiKey, true);
+    return $response;
+  }
+  
+  
 }

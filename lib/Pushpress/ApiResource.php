@@ -2,19 +2,24 @@
 
 abstract class Pushpress_ApiResource extends Pushpress_Object
 {
-  protected static function _scopedRetrieve($class, $id=null, $apiKey=null)
-  {
-      
+  protected static function _scopedRetrieve($class, $id=null, $apiKey=null, $params=array())
+  {      
     $instance = new $class($id, $apiKey);
-    $instance->refresh();
+    $instance->refresh($params);
     return $instance;
   }
   
-  public function refresh()
+  public function refresh($params=array())
   {      
     $requestor = new Pushpress_ApiRequestor($this->_apiKey);
     $url = $this->instanceUrl();
     
+    if (count($params)) {
+        $url .= "?";
+        foreach ($params as $key=>$value) {
+            $url .= $key . "=" . $value . "&";
+        }
+    }
     list($response, $apiKey) = $requestor->request('get', $url, $this->_retrieveOptions);
     $this->refreshFrom($response, $apiKey);
     
@@ -57,7 +62,6 @@ abstract class Pushpress_ApiResource extends Pushpress_Object
   {
     $requestor = new Pushpress_ApiRequestor($this->_apiKey);
     $url = $this->activeUrl();
-    mail("dan@pushpress.com", "Active URL", $url);
     list($response, $apiKey) = $requestor->request('get', $url, $this->_retrieveOptions);
     $this->refreshFrom($response, $apiKey);
     return $this;

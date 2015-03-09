@@ -21,7 +21,8 @@ class Pushpress_Product extends Pushpress_ApiResource
   }
 
   public static function retrieve($id=null, $apiKey=null)
-  {      
+  {
+        
     $class = get_class();
     return self::_scopedRetrieve($class, $id, $apiKey);
   }
@@ -91,10 +92,6 @@ class Pushpress_Product extends Pushpress_ApiResource
   public function saveOption($option=array())
   {
      $url =  $this->instanceUrl() . '/option';
-     // echo '<br><Br>';
-     //echo $url;
-     //echo '<br>';
-     
      
      $params = array(
         "name"        => $option['name'],
@@ -104,8 +101,6 @@ class Pushpress_Product extends Pushpress_ApiResource
         "inventory" => isset($option['inventory']) ? $option['inventory']: null,
         "cost" => isset($option['cost']) ? $option['cost']: null,
       );
-      // echo '<br>options:<br>';
-      // var_dump($params);
       $requestor = new Pushpress_ApiRequestor($this->_apiKey);
         
     list($response, $apiKey) = $requestor->request('post', $url, $params);
