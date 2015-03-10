@@ -80,5 +80,17 @@ class Pushpress_Calendar extends Pushpress_ApiResource
         return self::scopedConstructFrom($class, $response, $apiKey);
         
     }
+    
+    public static function getRegistrations($params=null) {
+        $class = get_class();
+        $url = self::classUrl($class);
+        $url .= "/registrations";
+        echo $url;
+        $requestor = new Pushpress_ApiRequestor();
+      
+        list($response, $apiKey) = $requestor->request('get', $url, $params);
+        return self::scopedConstructFrom($class, $response, $apiKey);
+        
+    }
   
 }
