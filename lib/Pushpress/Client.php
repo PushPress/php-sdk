@@ -50,9 +50,9 @@ class Pushpress_Client extends Pushpress_ApiResource
         $url = self::classUrl($class);
         $url .= "/settings/$type";
         $requestor = new Pushpress_ApiRequestor();
-      
-        list($response, $apiKey) = $requestor->request('get', $url);
-        return self::scopedConstructFrom($class, $response, $apiKey);
+		return $requestor->request('get', $url); 
+        //list($response, $apiKey) = $requestor->request('get', $url);
+	    //return self::scopedConstructFrom($class, $response, $apiKey);
       
   }
     
