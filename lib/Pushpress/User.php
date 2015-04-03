@@ -66,7 +66,6 @@ class Pushpress_User extends Pushpress_ApiResource
         $url = self::classUrl($class);
         
         $url .= "/pinreset/" .$user_id;
-        echo $url;
         $requestor = new Pushpress_ApiRequestor();
         
         list($response, $apiKey) = $requestor->request('get', $url);
