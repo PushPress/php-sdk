@@ -9,10 +9,10 @@ class Pushpress_Plan extends Pushpress_ApiResource
     return self::scopedConstructFrom($class, $values, $apiKey);
   }
 
-  public static function retrieve($id, $apiKey=null)
+  public static function retrieve($id, $params=null, $apiKey=null)
   {
     $class = get_class();
-    return self::_scopedRetrieve($class, $id, $apiKey);
+    return self::_scopedRetrieve($class, $id, $apiKey, $params);
   }
 
   public static function create($params=null, $apiKey=null)
