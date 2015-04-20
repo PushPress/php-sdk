@@ -91,11 +91,20 @@ class Pushpress_Customer extends Pushpress_ApiResource
               
         $requestor = new Pushpress_ApiRequestor($this->_apiKey);
         $url = $this->instanceUrl() . '/leads';
-        echo $url;
+        
         list($response, $apiKey) = $requestor->request('get', $url, $params);
         $this->refreshFrom($response, $apiKey);
         return $this;
   }
       
+    
+    public function appendableInvoice($params=null, $apiKey=null) {
+              
+        $requestor = new Pushpress_ApiRequestor($this->_apiKey);
+        $url = $this->instanceUrl() . '/invoice/appendable';
+        list($response, $apiKey) = $requestor->request('get', $url, $params);
+        $this->refreshFrom($response, $apiKey);
+        return $this;
+    }
        
 }
