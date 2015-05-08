@@ -52,6 +52,7 @@ require(dirname(__FILE__) . '/Pushpress/Plan.php');
 require(dirname(__FILE__) . '/Pushpress/Preorder.php');
 require(dirname(__FILE__) . '/Pushpress/Product.php');
 require(dirname(__FILE__) . '/Pushpress/ProductCategories.php');
+require(dirname(__FILE__) . '/Pushpress/Registration.php');
 require(dirname(__FILE__) . '/Pushpress/User.php');
 require(dirname(__FILE__) . '/Pushpress/Subscriptions.php');
 require(dirname(__FILE__) . '/Pushpress/SubscriptionContract.php');
