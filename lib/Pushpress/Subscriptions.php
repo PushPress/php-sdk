@@ -50,6 +50,16 @@ class Pushpress_Subscriptions extends Pushpress_ApiResource
     return self::_scopedSave($class);
   }
   
+  public function update($params=array()) {
+        $url =  $this->instanceUrl();
+        $requestor = new Pushpress_ApiRequestor($this->_apiKey);
+        
+        list($response, $apiKey) = $requestor->request('post', $url, $params);
+        //$this->refreshFrom(array('subscription' => $response), $apiKey, true);
+        
+        return $response;
+    }
+  
   public static function all($params=null, $apiKey=null)
   {
     $class = get_class();
@@ -68,6 +78,15 @@ class Pushpress_Subscriptions extends Pushpress_ApiResource
     //$this->refreshFrom(array('subscription' => $response), $apiKey, true);
     return $response;
   }
+  
+    public function cancel($params=array()) {
+        $url =  $this->instanceUrl() . '/cancel';
+        $requestor = new Pushpress_ApiRequestor($this->_apiKey);
+        
+        list($response, $apiKey) = $requestor->request('put', $url, $params);
+        //$this->refreshFrom(array('subscription' => $response), $apiKey, true);
+        return $response;
+    }
   
     public function saveContract($params=array()) {
         $url =  $this->instanceUrl() . '/contract';
