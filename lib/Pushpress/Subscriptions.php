@@ -83,7 +83,7 @@ class Pushpress_Subscriptions extends Pushpress_ApiResource
         $url =  $this->instanceUrl() . '/cancel';
         $requestor = new Pushpress_ApiRequestor($this->_apiKey);
         
-        list($response, $apiKey) = $requestor->request('put', $url, $params);
+        list($response, $apiKey) = $requestor->request('post', $url, $params);
         //$this->refreshFrom(array('subscription' => $response), $apiKey, true);
         return $response;
     }
