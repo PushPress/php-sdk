@@ -87,6 +87,14 @@ class Pushpress_Subscriptions extends Pushpress_ApiResource
         //$this->refreshFrom(array('subscription' => $response), $apiKey, true);
         return $response;
     }
+    
+    public function charge($params=array()) {
+        $url =  $this->instanceUrl() . '/charge';
+        $requestor = new Pushpress_ApiRequestor($this->_apiKey);
+        list($response, $apiKey) = $requestor->request('post', $url, $params);
+        //$this->refreshFrom(array('subscription' => $response), $apiKey, true);
+        return $response;
+    }
   
     public function saveContract($params=array()) {
         $url =  $this->instanceUrl() . '/contract';
