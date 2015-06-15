@@ -86,6 +86,16 @@ class Pushpress_Customer extends Pushpress_ApiResource
         $this->refreshFrom($response, $apiKey);
         return $this;
   }
+	
+	public function leadupdate($params=null) {
+              
+        $requestor = new Pushpress_ApiRequestor($this->_apiKey);
+        $url = $this->instanceUrl() . '/leadfunnel';
+		list($response, $apiKey) = $requestor->request('post', $url, $params);
+        $this->refreshFrom($response, $apiKey);
+		
+		return $this;
+  	}
     
     public function leads($params=null, $apiKey=null) {
               
