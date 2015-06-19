@@ -3,6 +3,47 @@ php-sdk
 
 PHP SDK For Use with PushPress.com
 
+## Installation
+
+The API client can be installed via [Composer](https://github.com/composer/composer).
+
+In your composer.json file:
+
+```js
+{
+    "require": {
+      "pushpress/php-sdk": "dev-master",
+    }
+}
+```
+
+Once the composer.json file is created you can run `composer install` for the initial package install and `composer update` to update to the latest version of the API client.
+
+The client uses [Guzzle](http://guzzle3.readthedocs.org).
+
+
+## Basic Usage
+
+Remember to include the Composer autoloader in your application:
+
+```php
+<?php
+require_once 'vendor/autoload.php';
+
+// Application code...
+?>
+```
+
+Configure your access credentials when creating a client:
+
+```php
+<?php
+PushpressApi::setApiKey(YOUR_API_PUBLIC_KEY);        
+?>
+```
+
+## License
+
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
