@@ -44,6 +44,17 @@ class Pushpress_Contracts extends Pushpress_ApiResource
     $class = get_class();
     return self::_scopedRetrieveEmpty($class, $id, $apiKey);
   }
+
+  public function customers($params=null)
+  {
+        $url =  $this->instanceUrl() . '/customers/' . $params['active'];
+        $requestor = new Pushpress_ApiRequestor($this->_apiKey);
+        
+        list($response, $apiKey) = $requestor->request('get', $url);
+        return Pushpress_Util::convertToPushpressObject($response, $apiKey);
+        
+  }
+  
   
   public function attachPlans($plan_ids=null)
   {
@@ -52,11 +63,6 @@ class Pushpress_Contracts extends Pushpress_ApiResource
             "plan_ids" => $plan_ids
         );
         $requestor = new Pushpress_ApiRequestor($this->_apiKey);
-        
-        echo $url;
-        echo '<BR>';
-        echo 'Params:<bR>';
-        var_dump($params);
         
         list($response, $apiKey) = $requestor->request('post', $url, $params);
         //$this->refreshFrom(array('subscription' => $response), $apiKey, true);
