@@ -4,6 +4,10 @@ abstract class Pushpress_ApiResource extends Pushpress_Object
 {
   protected static function _scopedRetrieve($class, $id=null, $apiKey=null, $params=array())
   {      
+
+    if (is_null($id)) { 
+      throw new Pushpress_Error("You must pass an value Identifer into the retrieve function to get an object.");
+    }
     $instance = new $class($id, $apiKey);
     $instance->refresh($params);
     return $instance;
