@@ -66,6 +66,15 @@ class Pushpress_Invoice extends Pushpress_ApiResource
     //$this->refreshFrom(array('subscription' => $response), $apiKey, true);
     return $response;
   }
+
+  public function deleteItem($invoice_item_id) 
+  {       
+      $url =  $this->instanceUrl() . '/item/' . $invoice_item_id;
+      $requestor = new Pushpress_ApiRequestor($this->_apiKey);
+        
+      list($response, $apiKey) = $requestor->request('delete', $url);
+      return $response;
+  }
   
   public function charge($params=array()) {       
     $url =  $this->instanceUrl() . '/charge';
