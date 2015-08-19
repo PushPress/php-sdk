@@ -11,10 +11,8 @@ class Pushpress_Customer extends Pushpress_ApiResource
   public static function retrieve($id, $apiKey=null)
   {
       
-      if (is_null($id)) {
-          $id = 0;
-      }
     $class = get_class();
+
     return self::_scopedRetrieve($class, $id, $apiKey);
   }
 
