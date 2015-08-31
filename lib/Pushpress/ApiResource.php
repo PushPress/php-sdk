@@ -180,14 +180,25 @@ abstract class Pushpress_ApiResource extends Pushpress_Object
     self::_validateCall('save');
     $requestor = new Pushpress_ApiRequestor($this->_apiKey);
     $params = $this->serializeParameters();
-        //echo 'PRARAMS:<br>';var_dump($params);
+    
     if (count($params) > 0) {
       $url = $this->instanceUrl();
-       // echo '<br>SAVING<br>';
-       // echo $url . '<br>;';
-       // var_dump($params);
-       // die();
       list($response, $apiKey) = $requestor->request('post', $url, $params);
+      $this->refreshFrom($response, $apiKey);
+    }
+    return $this;
+  }
+
+  protected function _scopedUpdate($class)
+  {
+    self::_validateCall('save');
+    $requestor = new Pushpress_ApiRequestor($this->_apiKey);
+    $params = $this->serializeParameters();
+    // echo 'PRARAMS:<br>';var_dump($params);
+    // die();
+    if (count($params) > 0) {
+      $url = $this->instanceUrl();
+      list($response, $apiKey) = $requestor->request('put', $url, $params);
       $this->refreshFrom($response, $apiKey);
     }
     return $this;

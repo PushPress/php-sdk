@@ -32,6 +32,11 @@ class Pushpress_Token extends Pushpress_ApiResource
     $class = get_class();
     return self::_scopedSave($class);
   }
+
+  public function update() { 
+      $class = get_class();
+      return self::_scopedUpdate($class);
+  }
   
   public static function all($params=null, $apiKey=null)
   {
