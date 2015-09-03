@@ -48,7 +48,7 @@ class Pushpress_Token extends Pushpress_ApiResource
     $class = get_class();
     $url = self::classUrl($class);
     $url .= "/pair";
-    $requestor = new Pushpress_ApiRequestor();
+    $requestor = new Pushpress_ApiRequestor(); 
       
     list($response, $apiKey) = $requestor->request('post', $url, $params);
     return self::scopedConstructFrom($class, $response, $apiKey);    

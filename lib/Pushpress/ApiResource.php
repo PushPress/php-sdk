@@ -183,6 +183,11 @@ abstract class Pushpress_ApiResource extends Pushpress_Object
     
     if (count($params) > 0) {
       $url = $this->instanceUrl();
+      // echo "<br>URL: " . $url;
+      // echo "<br>params:<br>";
+      // var_dump($params);
+      // die();
+
       list($response, $apiKey) = $requestor->request('post', $url, $params);
       $this->refreshFrom($response, $apiKey);
     }
