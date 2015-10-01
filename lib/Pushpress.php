@@ -14,7 +14,6 @@ if (!function_exists('json_decode')) {
 if (!function_exists('mb_detect_encoding')) {
   throw new Exception('Pushpress needs the Multibyte String PHP extension.');
 }
-
 // Pushpress singleton
 require(dirname(__FILE__) . '/Pushpress/Pushpress.php');
 
@@ -58,6 +57,11 @@ require(dirname(__FILE__) . '/Pushpress/Subscriptions.php');
 require(dirname(__FILE__) . '/Pushpress/SubscriptionContract.php');
 require(dirname(__FILE__) . '/Pushpress/TaxRates.php');
 require(dirname(__FILE__) . '/Pushpress/Token.php');
+require(dirname(__FILE__) . '/Pushpress/Track.php');
+require(dirname(__FILE__) . '/Pushpress/TrackWorkout.php');
+require(dirname(__FILE__) . '/Pushpress/TrackFavoriteWorkout.php');
+require(dirname(__FILE__) . '/Pushpress/TrackScoringType.php');
+require(dirname(__FILE__) . '/Pushpress/TrackWorkoutType.php');
 require(dirname(__FILE__) . '/Pushpress/Waiver.php');
 require(dirname(__FILE__) . '/Pushpress/Workout.php');
 require(dirname(__FILE__) . '/Pushpress/UserWaiver.php');

@@ -24,6 +24,7 @@ abstract class Pushpress_ApiResource extends Pushpress_Object
             $url .= $key . "=" . $value . "&";
         }
     }
+
     list($response, $apiKey) = $requestor->request('get', $url, $this->_retrieveOptions);
     $this->refreshFrom($response, $apiKey);
     
@@ -151,8 +152,10 @@ abstract class Pushpress_ApiResource extends Pushpress_Object
 
   protected static function _scopedAll($class, $params=null, $apiKey=null)
   {
+    
     self::_validateCall('all', $params, $apiKey);
     $requestor = new Pushpress_ApiRequestor($apiKey);
+    
     
     $url = self::_scopedLsb($class, 'classUrl', $class);
     $url = preg_replace("/(ss)$/", "s", $url);
@@ -168,8 +171,8 @@ abstract class Pushpress_ApiResource extends Pushpress_Object
     $url = self::_scopedLsb($class, 'classUrl', $class);
     $url = preg_replace("/(ss)$/", "s", $url);
     // echo $url;
-     // echo '<br>';
-     // var_dump($params);
+//      echo '<br>';
+  //    var_dump($params);
     //die();
     list($response, $apiKey) = $requestor->request('post', $url, $params);
     return Pushpress_Util::convertToPushpressObject($response, $apiKey);
@@ -214,6 +217,7 @@ abstract class Pushpress_ApiResource extends Pushpress_Object
     self::_validateCall('delete');
     $requestor = new Pushpress_ApiRequestor($this->_apiKey);
     $url = $this->instanceUrl();
+    
     list($response, $apiKey) = $requestor->request('delete', $url, $params);
     $this->refreshFrom($response, $apiKey);
     return $this;
