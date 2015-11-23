@@ -58,6 +58,8 @@ require(dirname(__FILE__) . '/Pushpress/SubscriptionContract.php');
 require(dirname(__FILE__) . '/Pushpress/TaxRates.php');
 require(dirname(__FILE__) . '/Pushpress/Token.php');
 require(dirname(__FILE__) . '/Pushpress/Track.php');
+require(dirname(__FILE__) . '/Pushpress/TrackBenchmark.php');
+require(dirname(__FILE__) . '/Pushpress/TrackBenchmarkResult.php');
 require(dirname(__FILE__) . '/Pushpress/TrackWorkout.php');
 require(dirname(__FILE__) . '/Pushpress/TrackFavoriteWorkout.php');
 require(dirname(__FILE__) . '/Pushpress/TrackScoringType.php');
