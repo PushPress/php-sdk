@@ -1,6 +1,6 @@
 <?php
 
-class Pushpress_Invoice extends Pushpress_ApiResource
+class Pushpress_InvoiceItem extends Pushpress_ApiResource
 {
   public static function constructFrom($values, $apiKey=null)
   {
@@ -56,36 +56,4 @@ class Pushpress_Invoice extends Pushpress_ApiResource
     return self::_scopedAll($class, $params, $apiKey);
   }
   
-  public function saveItem($item=array())
-  {       
-     $url =  $this->instanceUrl() . '/item';
-     $params = $item;
-      $requestor = new Pushpress_ApiRequestor($this->_apiKey);
-        
-    list($response, $apiKey) = $requestor->request('post', $url, $params);
-    //$this->refreshFrom(array('subscription' => $response), $apiKey, true);
-    return $response;
-  }
-
-  public function deleteItem($invoice_item_id) 
-  {       
-      $url =  $this->instanceUrl() . '/item/' . $invoice_item_id;
-      $requestor = new Pushpress_ApiRequestor($this->_apiKey);
-        
-      list($response, $apiKey) = $requestor->request('delete', $url);
-      return $response;
-  }
-  
-  public function charge($params=array()) {       
-    $url =  $this->instanceUrl() . '/charge';
-
-    $requestor = new Pushpress_ApiRequestor($this->_apiKey);
-     // echo $url;
-     // echo '<br>';
-     // var_dump($params);
-     // die();
-    list($response, $apiKey) = $requestor->request('post', $url, $params);
-    //$this->refreshFrom(array('subscription' => $response), $apiKey, true);
-    return $response;
-  }
 }

@@ -104,7 +104,11 @@ abstract class Pushpress_ApiResource extends Pushpress_Object
 
     public function instanceUrl()
     {
-        $id = $this['id'];    
+        $id = $this['id']; 
+
+        if (!$id) { 
+          $id = $this['uuid'];
+        }   
         $class = get_class($this);
     $id = Pushpress_ApiRequestor::utf8($id);
     $base = $this->_lsb('classUrl', $class);

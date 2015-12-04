@@ -38,18 +38,39 @@ abstract class Pushpress_Util
 
   public static function convertToPushpressObject($resp, $apiKey)
   {
+    //var_dump($resp);
     $types = array(
-      'card' => 'Pushpress_Card',
-      'charge' => 'Pushpress_Charge',
+      'billing' => 'Pushpress_Billing',
+      'calendar' => 'Pushpress_Calendar',
+      'checkin' => 'Pushpress_Checkin',
+      'client' => 'Pushpress_Client',
+      'contract' => 'Pushpress_Contract',
       'customer' => 'Pushpress_Customer',
+      'discount' => 'Pushpress_Discount',      
       'list' => 'Pushpress_List',
       'invoice' => 'Pushpress_Invoice',
-      'invoiceitem' => 'Pushpress_InvoiceItem',
-      'event' => 'Pushpress_Event',
-      'transfer' => 'Pushpress_Transfer',
+      'invoice_item' => 'Pushpress_InvoiceItem',
+      'message' => 'Pushpress_Message',
+      'order' => 'Pushpress_Order',
       'plan' => 'Pushpress_Plan',
-      'recipient' => 'Pushpress_Recipient',
-      'subscription' => 'Pushpress_Subscription'
+      'preorder' => 'Pushpress_Preorder',
+      'product' => 'Pushpress_Product',
+      'product_category' => 'Pushpress_ProductCategories',
+      'product_image' => 'Pushpress_ProductImages',
+      'registration' => 'Pushpress_Registration',
+      'subscription_contract' => 'Pushpress_SubscriptionContracts',
+      'subscription' => 'Pushpress_Subscriptions',
+      'tax_rate' => 'Pushpress_TaxRates',
+      'token' => 'Pushpress_Token',
+      'track' => 'Pushpress_Track',
+      'track_benchmark' => 'Pushpress_Track_Benchmark',
+      'track_benchmark_result' => 'Pushpress_Track_Benchmark_Result',
+      'track_favorite_workout' => 'Pushpress_Track_Favorite_Workout',
+      'track_score_type' => 'Pushpress_Track_Score_Type',
+      'track_workout' => 'Pushpress_Track_Workout',
+      'track_workout_type' => 'Pushpress_Track_Workout_Type',
+      'user' => 'Pushpress_User',
+      'user_waiver' => 'Pushpress_UserWaiver',
     );
     if (self::isList($resp)) {
       $mapped = array();
