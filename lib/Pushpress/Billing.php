@@ -47,6 +47,17 @@ class Pushpress_Billing extends Pushpress_ApiResource
         return Pushpress_Util::convertToPushpressObject($response, $apiKey);                
   }  
 
+  public static function linkPlaidAch($params=null, $apiKey=null) {    
+    
+        $class = get_class();
+        $url = self::classUrl($class);
+        $url .= "/ach/plaid";
+        
+        $requestor = new Pushpress_ApiRequestor();
+        list($response, $apiKey) = $requestor->request('post', $url, $params);
+        return Pushpress_Util::convertToPushpressObject($response, $apiKey);                
+  }  
+
 
   public static function verifyAch($params=null, $apiKey=null) {    
   
