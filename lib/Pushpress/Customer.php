@@ -123,5 +123,15 @@ class Pushpress_Customer extends Pushpress_ApiResource
         $this->refreshFrom($response, $apiKey);
         return $this;
     }
+
+    public function roster($params=null, $apiKey=null) {
+        $requestor = new Pushpress_ApiRequestor($this->_apiKey);
+        $url = $this->instanceUrl() . '/roster';
+        
+        list($response, $apiKey) = $requestor->request('get', $url, $params);
+        $this->refreshFrom($response, $apiKey);
+        return $this;
+    }
+    
        
 }
