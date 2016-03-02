@@ -82,6 +82,7 @@ class Pushpress_Product extends Pushpress_ApiResource
         "filename" => $image['filename'],
         "position" => $image['position']
       );
+
       $requestor = new Pushpress_ApiRequestor($this->_apiKey);
         
     list($response, $apiKey) = $requestor->request('post', $url, $params);
