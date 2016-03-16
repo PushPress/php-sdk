@@ -129,13 +129,16 @@ class Pushpress_ApiRequestor
   }
 
   private function _interpretResponse($rbody, $rcode)
-  {      
+  {     
+    
+    $rbody = stripslashes($rbody);
+
     try {
       $resp = json_decode($rbody, true);
     } catch (Exception $e) {        
       throw new Pushpress_ApiError("Invalid response body from API: $rbody (HTTP response code was $rcode)", $rcode, $rbody);
     }
-    
+
     if (!$resp) {
         $resp = json_decode($rbody, true);
     }
@@ -206,6 +209,7 @@ class Pushpress_ApiRequestor
       $rbody = curl_exec($curl);      
     }
 
+    
     
     
     if ($rbody === false) {
