@@ -131,7 +131,7 @@ class Pushpress_ApiRequestor
   private function _interpretResponse($rbody, $rcode)
   {     
     
-    //$rbody = stripslashes($rbody);
+    $rbody = str_replace("\&", "&", $rbody);
 
     try {
       $resp = json_decode($rbody, true);
