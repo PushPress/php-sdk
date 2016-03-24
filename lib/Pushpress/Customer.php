@@ -132,6 +132,15 @@ class Pushpress_Customer extends Pushpress_ApiResource
         $this->refreshFrom($response, $apiKey);
         return $this;
     }
+
+    public function referrals($params=null, $apiKey=null) {
+        $requestor = new Pushpress_ApiRequestor($this->_apiKey);
+        $url = $this->instanceUrl() . '/referrals';
+        
+        list($response, $apiKey) = $requestor->request('get', $url, $params);
+        $this->refreshFrom($response, $apiKey);
+        return $this;
+    }
     
        
 }
