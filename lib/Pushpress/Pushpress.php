@@ -8,8 +8,7 @@ abstract class PushpressApi
   const VERSION = '1.0.0';
   
   public final function __construct() {
-      echo '<bR>constructing API:';
-      var_dump($this);
+      
   }
 
   public static function getApiKey()
@@ -49,4 +48,6 @@ abstract class PushpressApi
   public static function setVerifySslCerts($verify) {
     self::$verifySslCerts = $verify;
   }
+  
+
 }

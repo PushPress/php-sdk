@@ -49,6 +49,17 @@ class Pushpress_User extends Pushpress_ApiResource
     $class = get_class();
     return self::_scopedAll($class, $params, $apiKey);
   }
+
+  public static function ping() { 
+    $class = get_class();
+    $url = self::classUrl($class);
+    $url .= "/ping";
+    $requestor = new Pushpress_ApiRequestor();
+        
+    list($response, $apiKey) = $requestor->request('get', $url, $params);
+    return self::scopedConstructFrom($class, $response, $apiKey);
+
+  }
   
     public static function auth($params=null) {
         $class = get_class();
