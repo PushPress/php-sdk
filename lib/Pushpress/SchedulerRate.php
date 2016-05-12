@@ -1,6 +1,6 @@
 <?php
 
-class Pushpress_Scheduler_Rates extends Pushpress_ApiResource
+class Pushpress_Scheduler_Rate extends Pushpress_ApiResource
 {
   public static function classUrl($class=null) {
     return "/v1/scheduler/rate";

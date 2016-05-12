@@ -60,4 +60,37 @@ class Pushpress_Scheduler_Credit extends Pushpress_ApiResource
     $class = get_class();
     return self::_scopedAll($class, $params, $apiKey);
   }
+
+  public static function checkin($id, $source=null) {
+        $class = get_class();
+        $url = self::classUrl($class);
+        $url .= "/" . $id . "/checkin";
+
+        $params = array(
+          "source" => $source
+        );
+        
+        $requestor = new Pushpress_ApiRequestor();
+      
+        list($response, $apiKey) = $requestor->request('post', $url, $params);
+        return self::scopedConstructFrom($class, $response, $apiKey);
+        
+    }
+
+    public static function deleteCheckin($id) {
+        $class = get_class();
+        $url = self::classUrl($class);
+        $url .= "/" . $id . "/checkin";
+
+        $params = array(
+          "source" => $source
+        );
+        
+        $requestor = new Pushpress_ApiRequestor();
+      
+        list($response, $apiKey) = $requestor->request('delete', $url);
+        return self::scopedConstructFrom($class, $response, $apiKey);
+        
+    }
+    
 }
