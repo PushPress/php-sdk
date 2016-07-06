@@ -83,7 +83,8 @@ class Pushpress_User extends Pushpress_ApiResource
         }
         //$params['email'] = $email;
         
-        $url .= "/pinreset/"
+        $url .= "/pinreset/";
+      
 
         $requestor = new Pushpress_ApiRequestor();
         
