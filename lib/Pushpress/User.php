@@ -75,17 +75,19 @@ class Pushpress_User extends Pushpress_ApiResource
     public static function resetPin($params=null) {
         $class = get_class();
         $url = self::classUrl($class);
+
+        $p = array();
         
         if (!is_array($params)) { 
-          $params['email'] = $params;
+          $p['email'] = $params;          
         }
         //$params['email'] = $email;
         
-        $url .= "/pinreset/";
+        $url .= "/pinreset/"
 
         $requestor = new Pushpress_ApiRequestor();
         
-        list($response, $apiKey) = $requestor->request('post', $url, $params);
+        list($response, $apiKey) = $requestor->request('post', $url, $p);
         return self::scopedConstructFrom($class, $response, $apiKey);
     }
     
