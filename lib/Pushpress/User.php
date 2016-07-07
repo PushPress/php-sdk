@@ -77,9 +77,12 @@ class Pushpress_User extends Pushpress_ApiResource
         $url = self::classUrl($class);
 
         $p = array();
-        
+
         if (!is_array($params)) { 
           $p['email'] = $params;          
+        }
+        else { 
+          $p = $params;
         }
         //$params['email'] = $email;
         
