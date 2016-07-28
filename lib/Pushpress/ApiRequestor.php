@@ -80,7 +80,7 @@ class Pushpress_ApiRequestor
   {
        
     if (!is_array($resp) || !isset($resp['error']))
-      throw new Pushpress_ApiError("Invalid response object from API: $rbody (HTTP response code was $rcode)", $rcode, $rbody, $resp);
+      throw new Pushpress_ApiError("There was an error: $rbody", $rcode, $rbody, $resp);
     $error = $resp['error'];
     switch ($rcode) {
     case 400:
