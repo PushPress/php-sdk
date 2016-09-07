@@ -41,7 +41,8 @@ class Pushpress_Billing extends Pushpress_ApiResource
   
         $class = get_class();
         $url = self::classUrl($class);
-        $url .= "/ach";
+        $url .=  "/" . $params['user_id'] . "/ach";
+        
         $requestor = new Pushpress_ApiRequestor();
         list($response, $apiKey) = $requestor->request('get', $url, $params);
         return Pushpress_Util::convertToPushpressObject($response, $apiKey);                
@@ -52,7 +53,7 @@ class Pushpress_Billing extends Pushpress_ApiResource
         $class = get_class();
         $url = self::classUrl($class);
         $url .= "/ach/plaid";
-        
+
         $requestor = new Pushpress_ApiRequestor();
         list($response, $apiKey) = $requestor->request('post', $url, $params);
         return Pushpress_Util::convertToPushpressObject($response, $apiKey);                
