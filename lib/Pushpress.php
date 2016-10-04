@@ -40,6 +40,7 @@ require(dirname(__FILE__) . '/Pushpress/List.php');
 require(dirname(__FILE__) . '/Pushpress/Activity.php');
 require(dirname(__FILE__) . '/Pushpress/Billing.php');
 require(dirname(__FILE__) . '/Pushpress/Calendar.php');
+require(dirname(__FILE__) . '/Pushpress/CalendarType.php');
 require(dirname(__FILE__) . '/Pushpress/Checkin.php');
 require(dirname(__FILE__) . '/Pushpress/Client.php');
 require(dirname(__FILE__) . '/Pushpress/Contract.php');
