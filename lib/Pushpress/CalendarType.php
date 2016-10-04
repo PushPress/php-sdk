@@ -3,7 +3,7 @@
 class Pushpress_CalendarType extends Pushpress_ApiResource
 {
     public static function classUrl($class=null) {
-        return "/v1/calendar";
+        return "/v1/calendar/types";
     }
     
   public static function constructFrom($values, $apiKey=null)
