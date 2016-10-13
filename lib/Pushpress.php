@@ -52,6 +52,8 @@ require(dirname(__FILE__) . '/Pushpress/Message.php');
 require(dirname(__FILE__) . '/Pushpress/MessageLog.php');
 require(dirname(__FILE__) . '/Pushpress/MetricsCoach.php');
 require(dirname(__FILE__) . '/Pushpress/Order.php');
+require(dirname(__FILE__) . '/Pushpress/PayrollItem.php');
+require(dirname(__FILE__) . '/Pushpress/PayrollReport.php');
 require(dirname(__FILE__) . '/Pushpress/Plan.php');
 require(dirname(__FILE__) . '/Pushpress/PlanCategory.php');
 require(dirname(__FILE__) . '/Pushpress/Preorder.php');
