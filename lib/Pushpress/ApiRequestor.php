@@ -119,8 +119,11 @@ class Pushpress_ApiRequestor
 		'lang_version' => $langVersion,
 		'publisher' => 'pushpress',
 		'uname' => $uname);
+
+    $user_agent =  "Pushpress/v1:" . (array_key_exists('PP-APP-ID', $_SERVER) ? $_SERVER['PP-APP-ID'] : 'Generic PhpBindings' );
+
     $headers = array('X-Pushpress-Client-User-Agent: ' . json_encode($ua),
-		     'User-Agent: Pushpress/v1 PhpBindings/' . PushpressApi::VERSION,
+		     'User-Agent: ' . $user_agent,
                      'Authorization: Basic ' . base64_encode($myApiKey));
     if (PushpressApi::$apiVersion)
       $headers[] = 'Pushpress-Version: ' . PushpressApi::$apiVersion;
@@ -174,11 +177,13 @@ class Pushpress_ApiRequestor
       $opts[CURLOPT_POSTFIELDS] = self::encode($params);
     } 
     else if ($meth == 'delete')  {
-      $opts[CURLOPT_CUSTOMREQUEST] = 'DELETE';
+      $opts[CURLOPT_CUSTOMREQUEST] = "DELETE"; 
+      $opts[CURLOPT_POSTFIELDS] = self::encode($params);
+      
       if (count($params) > 0) {
-	$encoded = self::encode($params);
-	$absUrl = "$absUrl?$encoded";
-      }
+	       $encoded = self::encode($params);
+	       $absUrl = "$absUrl?$encoded";
+        }
     } else {
       throw new Pushpress_ApiError("Unrecognized method $meth");
     }

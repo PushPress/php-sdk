@@ -206,10 +206,14 @@ abstract class Pushpress_ApiResource extends Pushpress_Object
     self::_validateCall('save');
     $requestor = new Pushpress_ApiRequestor($this->_apiKey);
     $params = $this->serializeParameters();
-    // echo 'PRARAMS:<br>';var_dump($params);
-    // die();
+
     if (count($params) > 0) {
       $url = $this->instanceUrl();
+
+      // echo 'URL ' . $url;
+      // echo 'PRARAMS:<br>';var_dump($params);
+      // die();
+
       list($response, $apiKey) = $requestor->request('put', $url, $params);
       $this->refreshFrom($response, $apiKey);
     }
@@ -221,7 +225,11 @@ abstract class Pushpress_ApiResource extends Pushpress_Object
     self::_validateCall('delete');
     $requestor = new Pushpress_ApiRequestor($this->_apiKey);
     $url = $this->instanceUrl();
-    
+
+    //echo $url;
+    //var_dump($params);
+    //die();
+
     list($response, $apiKey) = $requestor->request('delete', $url, $params);
     $this->refreshFrom($response, $apiKey);
     return $this;
