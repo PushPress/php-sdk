@@ -129,8 +129,8 @@ class Pushpress_ApiRequestor
     if (PushpressApi::$apiVersion)
       $headers[] = 'Pushpress-Version: ' . PushpressApi::$apiVersion;
 
-    if ($_SERVER['HTTP_X_FORWARDED_FOR'])
-      $headers[] = 'X-Forwarded-For: ' . $_SERVER['HTTP_X_FORWARDED_FOR'];
+    if ($_SERVER['REMOTE_ADDR'])
+      $headers[] = 'X-Forwarded-For: ' . $_SERVER['REMOTE_ADDR'];
 
     list($rbody, $rcode) = $this->_curlRequest($meth, $absUrl, $headers, $params);
     return array($rbody, $rcode, $myApiKey);
