@@ -8,6 +8,7 @@ abstract class Pushpress_ApiResource extends Pushpress_Object
     if (is_null($id) ||  (! strlen(trim($id))) )  { 
       throw new Pushpress_Error("You must pass an value Identifer into the retrieve function to get an object.");
     }
+
     $instance = new $class($id, $apiKey);
     $instance->refresh($params);
     return $instance;

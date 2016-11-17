@@ -40,6 +40,7 @@ abstract class Pushpress_Util
   {
     //var_dump($resp);
     $types = array(
+      'application' => 'Pushpress_App',
       'billing' => 'Pushpress_Billing',
       'calendar' => 'Pushpress_Calendar',
       'checkin' => 'Pushpress_Checkin',

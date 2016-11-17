@@ -1,15 +1,19 @@
 <?php
 
-class Pushpress_Token extends Pushpress_ApiResource
+class Pushpress_App extends Pushpress_ApiResource
 {
-    
+
+  public static function classUrl($class=null) {
+        return "/v1/application";
+    }
+
   public static function constructFrom($values, $apiKey=null)
   {
     $class = get_class();
     return self::scopedConstructFrom($class, $values, $apiKey);
   }
 
-  public static function retrieve($id, $params=null, $apiKey=null)
+  public static function retrieve($id, $params=array(), $apiKey=null)
   {
     $class = get_class();
     return self::_scopedRetrieve($class, $id, $apiKey, $params);
@@ -32,11 +36,6 @@ class Pushpress_Token extends Pushpress_ApiResource
     $class = get_class();
     return self::_scopedSave($class);
   }
-
-  public function update() { 
-      $class = get_class();
-      return self::_scopedUpdate($class);
-  }
   
   public static function all($params=null, $apiKey=null)
   {
@@ -44,20 +43,4 @@ class Pushpress_Token extends Pushpress_ApiResource
     return self::_scopedAll($class, $params, $apiKey);
   }
 
-  public function pair($params) { 
-    $class = get_class();
-    $url = self::classUrl($class);
-    $url .= "/pair";
-    $requestor = new Pushpress_ApiRequestor(); 
-
-    // echo $url;
-    // var_dump($params);
-    //die();
-      
-    list($response, $apiKey) = $requestor->request('post', $url, $params);
-    return self::scopedConstructFrom($class, $response, $apiKey);    
-  }
-
-  
 }
-
