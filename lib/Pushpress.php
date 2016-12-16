@@ -57,6 +57,7 @@ require(dirname(__FILE__) . '/Pushpress/Payrate.php');
 require(dirname(__FILE__) . '/Pushpress/PayrollItem.php');
 require(dirname(__FILE__) . '/Pushpress/PayrollReport.php');
 require(dirname(__FILE__) . '/Pushpress/Plan.php');
+require(dirname(__FILE__) . '/Pushpress/PlanCalendarItemType.php');
 require(dirname(__FILE__) . '/Pushpress/PlanCategory.php');
 require(dirname(__FILE__) . '/Pushpress/Preorder.php');
 require(dirname(__FILE__) . '/Pushpress/Product.php');
