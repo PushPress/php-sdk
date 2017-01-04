@@ -127,8 +127,12 @@ class Pushpress_ApiRequestor
     $user_agent =  "Pushpress/v1:" . (array_key_exists('PP-APP-ID', $_SERVER) ? $_SERVER['PP-APP-ID'] : 'Generic PhpBindings' );
 
     $headers = array('X-Pushpress-Client-User-Agent: ' . json_encode($ua),        
-		    'User-Agent: ' . $user_agent,
-        'Authorization: Basic ' . base64_encode($myApiKey));
+		    'User-Agent: ' . $user_agent);
+
+    if (strlen($myApiKey)) { 
+      $headers[] = 'Authorization: Basic ' . base64_encode($myApiKey);
+    }
+        
     
     if (PushpressApi::$apiVersion)
       $headers[] = 'Pushpress-Version: ' . PushpressApi::$apiVersion;
