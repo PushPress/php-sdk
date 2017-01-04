@@ -105,8 +105,12 @@ class Pushpress_ApiRequestor
     $myApiKey = $this->_apiKey;
     if (!$myApiKey)
       $myApiKey = PushpressApi::$apiKey;
-    if (!$myApiKey)
-      throw new Pushpress_AuthenticationError('No API key provided.  (HINT: set your API key using "PushpressApi::setApiKey(<API-KEY>)".  You can generate API keys from the Pushpress web interface.  See https://pushpress.com/api for details, or email support@pushpress.com if you have any questions.');
+    
+
+
+    // if (!$myApiKey)
+    // allow no api key requests
+    //  throw new Pushpress_AuthenticationError('No API key provided.  (HINT: set your API key using "PushpressApi::setApiKey(<API-KEY>)".  You can generate API keys from the Pushpress web interface.  See https://pushpress.com/api for details, or email support@pushpress.com if you have any questions.');
 
     
     $absUrl = $this->apiUrl($url);
