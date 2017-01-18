@@ -42,5 +42,18 @@ class Pushpress_PayrollItem extends Pushpress_ApiResource
     return self::_scopedAll($class, $params, $apiKey);
   }
   
+
+  public static function summary($params=null)
+  {
+    
+    $class = get_class();
+    // self::_validateCall('all', $params, $apiKey);
+    $requestor = new Pushpress_ApiRequestor($apiKey);
+    
+    $url = "/v1/payroll/summary";
+
+    list($response, $apiKey) = $requestor->request('get', $url, $params);
+    return Pushpress_Util::convertToPushpressObject($response, $apiKey);
+  }
    
 }
