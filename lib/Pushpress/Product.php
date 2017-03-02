@@ -101,7 +101,9 @@ class Pushpress_Product extends Pushpress_ApiResource
         "order" =>  isset($option['order']) ? $option['order']: 1,
         "inventory" => isset($option['inventory']) ? $option['inventory']: null,
         "cost" => isset($option['cost']) ? $option['cost']: null,
+        "adjustment_comment" => isset($option['adjustment_comment']) ? $option['adjustment_comment']: null,
       );
+
       $requestor = new Pushpress_ApiRequestor($this->_apiKey);
         
     list($response, $apiKey) = $requestor->request('post', $url, $params);

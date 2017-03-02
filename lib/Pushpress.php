@@ -79,6 +79,7 @@ require(dirname(__FILE__) . '/Pushpress/TrackWorkout.php');
 require(dirname(__FILE__) . '/Pushpress/TrackFavoriteWorkout.php');
 require(dirname(__FILE__) . '/Pushpress/TrackScoringType.php');
 require(dirname(__FILE__) . '/Pushpress/TrackWorkoutType.php');
+require(dirname(__FILE__) . '/Pushpress/UserImage.php');
 require(dirname(__FILE__) . '/Pushpress/Waiver.php');
 require(dirname(__FILE__) . '/Pushpress/Workout.php');
 require(dirname(__FILE__) . '/Pushpress/UserWaiver.php');
