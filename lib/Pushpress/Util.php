@@ -47,6 +47,7 @@ abstract class Pushpress_Util
       'client' => 'Pushpress_Client',
       'contract' => 'Pushpress_Contract',
       'customer' => 'Pushpress_Customer',
+      'document' => 'Pushpress_Document',      
       'discount' => 'Pushpress_Discount',      
       'list' => 'Pushpress_List',
       'invoice' => 'Pushpress_Invoice',
