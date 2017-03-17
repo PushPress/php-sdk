@@ -83,4 +83,5 @@ require(dirname(__FILE__) . '/Pushpress/TrackWorkoutType.php');
 require(dirname(__FILE__) . '/Pushpress/UserImage.php');
 require(dirname(__FILE__) . '/Pushpress/Waiver.php');
 require(dirname(__FILE__) . '/Pushpress/Workout.php');
+require(dirname(__FILE__) . '/Pushpress/UserDocument.php');
 require(dirname(__FILE__) . '/Pushpress/UserWaiver.php');
