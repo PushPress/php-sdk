@@ -52,4 +52,18 @@ class Pushpress_UserDocument extends Pushpress_ApiResource
         return self::scopedConstructFrom($class, $response, $apiKey);
         
     }
+
+    public static function revoke($id, $params) {
+        $class = get_class();
+        
+        $url = self::classUrl($class);
+        $url .= "/" . $id . "/revoke";
+
+        $requestor = new Pushpress_ApiRequestor();
+        
+      
+        list($response, $apiKey) = $requestor->request('get', $url, $params);
+        return self::scopedConstructFrom($class, $response, $apiKey);
+        
+    }
 }

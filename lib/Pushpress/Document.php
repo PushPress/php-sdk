@@ -36,6 +36,14 @@ class Pushpress_Document extends Pushpress_ApiResource
     $class = get_class();
     return self::_scopedSave($class);
   }
+
+  public function getActive() {               
+
+
+    $class = get_class();
+    return self::_scopedRetrieve($class, "/active", $apiKey, $params);
+
+  }
   
   public static function all($params=null, $apiKey=null)
   {

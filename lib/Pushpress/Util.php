@@ -77,6 +77,7 @@ abstract class Pushpress_Util
       'track_workout' => 'Pushpress_Track_Workout',
       'track_workout_type' => 'Pushpress_Track_Workout_Type',
       'user' => 'Pushpress_User',
+      'user_document' => 'Pushpress_UserDocument',
       'user_image' => 'Pushpress_UserImage',
       'user_waiver' => 'Pushpress_UserWaiver',
     );
