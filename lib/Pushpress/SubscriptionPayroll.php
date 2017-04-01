@@ -1,6 +1,6 @@
 <?php
 
-class Pushpress_Subscription_Payroll extends Pushpress_ApiResource
+class Pushpress_SubscriptionPayroll extends Pushpress_ApiResource
 {
   public static function constructFrom($values, $apiKey=null)
   {
