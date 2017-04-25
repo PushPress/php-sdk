@@ -136,5 +136,18 @@ class Pushpress_Product extends Pushpress_ApiResource
     //$this->refreshFrom(array('subscription' => $response), $apiKey, true);
     return $response;
   }
+
+  public static function getOptionById($id) {
+        $class = get_class();
+        $url = self::classUrl($class);
+        $url .= "/options/" . $id;
+
+        $requestor = new Pushpress_ApiRequestor();
+      
+        list($response, $apiKey) = $requestor->request('get', $url, $params);
+        return self::scopedConstructFrom($class, $response, $apiKey);
+        
+    }
+
   
 }
