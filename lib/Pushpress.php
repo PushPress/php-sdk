@@ -64,6 +64,7 @@ require(dirname(__FILE__) . '/Pushpress/Preorder.php');
 require(dirname(__FILE__) . '/Pushpress/Product.php');
 require(dirname(__FILE__) . '/Pushpress/ProductCategories.php');
 require(dirname(__FILE__) . '/Pushpress/Registration.php');
+require(dirname(__FILE__) . '/Pushpress/Report.php');
 require(dirname(__FILE__) . '/Pushpress/User.php');
 require(dirname(__FILE__) . '/Pushpress/SchedulerCredit.php');
 require(dirname(__FILE__) . '/Pushpress/SchedulerType.php');

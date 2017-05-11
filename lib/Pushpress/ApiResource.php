@@ -235,4 +235,24 @@ abstract class Pushpress_ApiResource extends Pushpress_Object
     $this->refreshFrom($response, $apiKey);
     return $this;
   }
+
+  protected static function _scopedReport($class, $report_name, $params=null, $apiKey=null)
+  {
+    $requestor = new Pushpress_ApiRequestor($apiKey);
+    $url = self::_scopedLsb($class, 'classUrl', $class);
+    $url = preg_replace("/(ss)$/", "s", $url);
+    $url .= "/" . $report_name;
+
+    $p = null;
+
+    if ($params) { 
+      $params = json_encode($params);
+      $p = array(
+        "params" => $params
+      );
+    }
+    list($response, $apiKey) = $requestor->request('post', $url, $p);
+
+    return Pushpress_Util::convertToPushpressObject($response, $apiKey);
+  }
 }
