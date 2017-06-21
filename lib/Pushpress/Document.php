@@ -30,6 +30,13 @@ class Pushpress_Document extends Pushpress_ApiResource
     $class = get_class();
     return self::_scopedDelete($class, $params);
   }
+
+  public function recover()
+  {
+    $class = get_class();
+    $params = array("active"=>1);
+    return self::_scopedDelete($class, $params);
+  }
   
   public function save()
   {

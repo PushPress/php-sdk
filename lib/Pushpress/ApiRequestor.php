@@ -173,8 +173,8 @@ class Pushpress_ApiRequestor
     if ($meth == 'get') {
       $opts[CURLOPT_HTTPGET] = 1;
       if (count($params) > 0) {
-	$encoded = self::encode($params);
-	$absUrl = "$absUrl?$encoded";
+	       $encoded = self::encode($params);
+	       $absUrl = "$absUrl?$encoded";
       }
     } else if ($meth == 'post') {
       $opts[CURLOPT_POST] = 1;
