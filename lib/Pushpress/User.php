@@ -94,6 +94,28 @@ class Pushpress_User extends Pushpress_ApiResource
         list($response, $apiKey) = $requestor->request('post', $url, $p);
         return self::scopedConstructFrom($class, $response, $apiKey);
     }
+
+    public static function setupEmail($params=null) {
+        $class = get_class();
+        $url = self::classUrl($class);
+
+        $p = array();
+
+        if (!is_array($params)) { 
+          $p['email'] = $params;          
+        }
+        else { 
+          $p = $params;
+        }
+        //$params['email'] = $email;
+        
+        $url .= "/setupemail/";
+
+        $requestor = new Pushpress_ApiRequestor();
+        
+        list($response, $apiKey) = $requestor->request('post', $url, $p);
+        return self::scopedConstructFrom($class, $response, $apiKey);
+    }
     
     
     public function setClient($params=null) {
