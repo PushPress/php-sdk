@@ -58,6 +58,17 @@ class Pushpress_Track_Workout extends Pushpress_ApiResource
     $class = get_class();
     return self::_scopedAll($class, $params, $apiKey);
   }
+
+  public static function today($params=null, $apiKey=null) {
+              
+    $requestor = new Pushpress_ApiRequestor($this->_apiKey);
+    $url = $this->instanceUrl() . '/today';
+
+        
+    list($response, $apiKey) = $requestor->request('get', $url, $params);
+    $this->refreshFrom($response, $apiKey);
+    return $this;
+  }
   
       
 }
