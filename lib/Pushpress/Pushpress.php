@@ -3,7 +3,7 @@ abstract class PushpressApi
 {
   public static $apiKey;
   public static $apiBase = 'https://api.pushpress.com';
-  public static $apiVersion = null;
+  public static $apiVersion = "v1";
   public static $verifySslCerts = false;
   const VERSION = '1.0.0';
   
