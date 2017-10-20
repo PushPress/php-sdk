@@ -51,8 +51,8 @@ class Pushpress_Client extends Pushpress_ApiResource
         $url .= "/settings/$type";
         $requestor = new Pushpress_ApiRequestor();
         list($response, $apiKey) = $requestor->request('get', $url);
-        return Pushpress_Util::convertToPushpressObject($response, $apiKey)->__toArray();
-  }
+        return Pushpress_Util::convertToPushpressObject($response, $apiKey);
+    }
     
     public static function referralSources() {
         $class = get_class();
