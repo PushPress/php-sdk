@@ -52,10 +52,10 @@ class Pushpress_Client extends Pushpress_ApiResource
         $requestor = new Pushpress_ApiRequestor();
 		    // $x = $requestor->request('get', $url); 
         list($response, $apiKey) = $requestor->request('get', $url);
-        //return Pushpress_Util::convertToPushpressObject($response, $apiKey);
+        return Pushpress_Util::convertToPushpressObject($response, $apiKey)->__toArray()
 
-        list($response, $apiKey) = $requestor->request('get', $url);
-        return self::scopedConstructFrom($class, $response, $apiKey);
+        //list($response, $apiKey) = $requestor->request('get', $url);
+        //return self::scopedConstructFrom($class, $response, $apiKey);
       
   }
     
