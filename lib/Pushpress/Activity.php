@@ -2,6 +2,10 @@
 
 class Pushpress_Activity extends Pushpress_ApiResource
 {
+  public static function classUrl($class=null) {
+        return "/v1/activity";
+    }
+    
   public static function constructFrom($values, $apiKey=null)
   {
     $class = get_class();
