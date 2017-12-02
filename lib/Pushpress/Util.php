@@ -68,7 +68,7 @@ abstract class Pushpress_Util
           'scheduler_rate' => 'Pushpress_Scheduler_Rate',
           'subscription_contract' => 'Pushpress_SubscriptionContracts',
           'subscription' => 'Pushpress_Subscriptions',
-          'sub_pay' => 'Pushpress_Subscription_Payroll',
+          'sub_pay' => 'Pushpress_SubscriptionPayroll',
           'tax_rate' => 'Pushpress_TaxRates',
           'token' => 'Pushpress_Token',
           'track' => 'Pushpress_Track',
