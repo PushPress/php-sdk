@@ -142,7 +142,7 @@ class Pushpress_Customer extends Pushpress_ApiResource
         return $this;
     }
 
-    public function validate($params=null) { 
+    public static function validate($params=null) { 
         $class = get_class();
         $url = self::classUrl($class);
         $url .=  "/validate";
