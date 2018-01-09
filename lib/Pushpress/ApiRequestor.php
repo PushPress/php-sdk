@@ -147,6 +147,8 @@ class Pushpress_ApiRequestor
   {     
     
     $rbody = str_replace("\&", "&", $rbody);
+    $rbody = str_replace("\&#39;", "'", $rbody);
+    $rbody = str_replace("\&#34;", '\"', $rbody); 
 
     try {
       $resp = json_decode($rbody, true);
