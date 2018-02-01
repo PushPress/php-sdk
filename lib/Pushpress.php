@@ -1,7 +1,7 @@
 <?php
 /*
  * PushPress SDK
- * v1.2.0
+ * v1.2.1
  */
  
 // This snippet (and some of the curl code) due to the Facebook SDK.
