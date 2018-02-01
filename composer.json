@@ -2,7 +2,7 @@
     "name": "pushpress/php-sdk",
     "description": "PHP SDK for the PushPress API",
     "type": "sdk",
-    "homepage": "https://github.com/pushpress-com/php-sdk",
+    "homepage": "https://github.com/pushpress/php-sdk",
     "license": "MIT",
     "require": {
         "php": ">=5.3.0"
