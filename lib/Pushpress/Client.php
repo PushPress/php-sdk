@@ -1,5 +1,4 @@
 <?php
-
 class Pushpress_Client extends Pushpress_ApiResource
 {
     
@@ -54,6 +53,15 @@ class Pushpress_Client extends Pushpress_ApiResource
         return Pushpress_Util::convertToPushpressObject($response, $apiKey); 
   }
 
+  public static function locations() {
+    return true;
+        $class = get_class();
+        $url = self::classUrl($class);
+        $url .= "/locations";
+        $requestor = new Pushpress_ApiRequestor();
+        list($response, $apiKey) = $requestor->request('get', $url);
+        return Pushpress_Util::convertToPushpressObject($response, $apiKey); 
+  }
 
   public static function saveSettings($type=null, $settings=array()) {
         $class = get_class();
@@ -90,14 +98,6 @@ class Pushpress_Client extends Pushpress_ApiResource
     return self::scopedConstructFrom($class, $response, $apiKey);
   }
 
-  public static function locations() {
-    $class = get_class();
-    $url = self::classUrl($class);
-    $url .= "/locations";
-    $requestor = new Pushpress_ApiRequestor();
   
-    list($response, $apiKey) = $requestor->request('get', $url);
-    return self::scopedConstructFrom($class, $response, $apiKey);  
-  }
    
 }
