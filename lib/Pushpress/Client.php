@@ -54,6 +54,7 @@ class Pushpress_Client extends Pushpress_ApiResource
         return Pushpress_Util::convertToPushpressObject($response, $apiKey); 
   }
 
+
   public static function saveSettings($type=null, $settings=array()) {
         $class = get_class();
         $url = self::classUrl($class);
@@ -79,16 +80,24 @@ class Pushpress_Client extends Pushpress_ApiResource
         return Pushpress_Util::convertToPushpressObject($response, $apiKey); 
   }
     
-    public static function referralSources() {
-        $class = get_class();
-        $url = self::classUrl($class);
-        $url .= "/referralsources";
-        $requestor = new Pushpress_ApiRequestor();
-      
-        list($response, $apiKey) = $requestor->request('get', $url);
-        return self::scopedConstructFrom($class, $response, $apiKey);
-      
-        
-    }
+  public static function referralSources() {
+    $class = get_class();
+    $url = self::classUrl($class);
+    $url .= "/referralsources";
+    $requestor = new Pushpress_ApiRequestor();
+  
+    list($response, $apiKey) = $requestor->request('get', $url);
+    return self::scopedConstructFrom($class, $response, $apiKey);
+  }
+
+  public static function locations() {
+    $class = get_class();
+    $url = self::classUrl($class);
+    $url .= "/locations";
+    $requestor = new Pushpress_ApiRequestor();
+  
+    list($response, $apiKey) = $requestor->request('get', $url);
+    return self::scopedConstructFrom($class, $response, $apiKey);  
+  }
    
 }
