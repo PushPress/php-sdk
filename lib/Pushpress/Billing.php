@@ -58,10 +58,6 @@ class Pushpress_Billing extends Pushpress_ApiResource
           throw new Pushpress_InvalidRequestError('Billing ID is required');
         }
 
-        echo "<br>URKL " . $url;
-        var_dimp($params);
-        die();
-
         $requestor = new Pushpress_ApiRequestor();
         list($response, $apiKey) = $requestor->request('post', $url, $params);
         return Pushpress_Util::convertToPushpressObject($response, $apiKey);                
