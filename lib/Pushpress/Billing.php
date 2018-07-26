@@ -76,13 +76,31 @@ class Pushpress_Billing extends Pushpress_ApiResource
 
 
   public static function verifyAch($params=null, $apiKey=null) {    
-  
-        $class = get_class();
-        $url = self::classUrl($class);
-        $url .= "/ach";
-        $requestor = new Pushpress_ApiRequestor();
-        list($response, $apiKey) = $requestor->request('post', $url, $params);
-        return Pushpress_Util::convertToPushpressObject($response, $apiKey);                
+    
+    $class = get_class();
+    $url = self::classUrl($class);
+
+    if (isset($params['verify_1']) || isset($params['verify_2'])) {   
+      $url .= "/ach";
+    }
+    else { 
+      $url .= "/ach/reminder";
+    }
+      
+    $requestor = new Pushpress_ApiRequestor();
+    list($response, $apiKey) = $requestor->request('post', $url, $params);
+    return Pushpress_Util::convertToPushpressObject($response, $apiKey);                
+  }  
+
+  public static function requestAch($params=null, $apiKey=null) {    
+    
+    $class = get_class();
+    $url = self::classUrl($class);
+    $url .= "/ach/request";
+      
+    $requestor = new Pushpress_ApiRequestor();
+    list($response, $apiKey) = $requestor->request('post', $url, $params);
+    return Pushpress_Util::convertToPushpressObject($response, $apiKey);                
   }  
 
   
