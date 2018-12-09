@@ -5,7 +5,7 @@ abstract class PushpressApi
   public static $apiBase = 'https://api.pushpress.com';
   public static $apiVersion = "v1";
   public static $verifySslCerts = false;
-  const VERSION = '1.0.4';
+  const VERSION = '1.1.0'; 
   
   public final function __construct() {
       
