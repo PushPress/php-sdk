@@ -100,7 +100,7 @@ abstract class Pushpress_ApiResource extends Pushpress_Object
   public static function classUrl($class)
   {
     $base = self::_scopedLsb($class, 'className', $class);
-    return "/v1/${base}s";
+    return "/" . PushpressApi::$apiVersion . "/${base}s";
   }
 
     public function instanceUrl()
@@ -111,6 +111,7 @@ abstract class Pushpress_ApiResource extends Pushpress_Object
           $id = $this['uuid'];
         }   
         $class = get_class($this);
+    
     $id = Pushpress_ApiRequestor::utf8($id);
     $base = $this->_lsb('classUrl', $class);
     $base = preg_replace("/(ss)$/", "s", $base);
