@@ -213,6 +213,11 @@ class Pushpress_ApiRequestor
     if (!PushpressApi::$verifySslCerts)
       $opts[CURLOPT_SSL_VERIFYPEER] = false;
 
+    if ($proxy = getenv("PROXY_REQUESTS")) { 
+      $opts[CURLOPT_PROXY] = $proxy;
+    }
+
+
     curl_setopt_array($curl, $opts);
     $rbody = curl_exec($curl);
     $errno = curl_errno($curl);
