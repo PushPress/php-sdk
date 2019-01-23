@@ -101,4 +101,17 @@ class Pushpress_Invoice extends Pushpress_ApiResource
     //$this->refreshFrom(array('subscription' => $response), $apiKey, true);
     return $response;
   }
+
+  public function receipt($params=array()) {       
+    $url =  $this->instanceUrl() . '/receipt';
+
+    $requestor = new Pushpress_ApiRequestor($this->_apiKey);
+     // echo $url;
+     // echo '<br>';
+     // var_dump($params);
+     // die();
+    list($response, $apiKey) = $requestor->request('post', $url, $params);
+    //$this->refreshFrom(array('subscription' => $response), $apiKey, true);
+    return $response;
+  }
 }
