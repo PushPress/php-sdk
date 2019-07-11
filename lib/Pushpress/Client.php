@@ -53,6 +53,15 @@ class Pushpress_Client extends Pushpress_ApiResource
         return Pushpress_Util::convertToPushpressObject($response, $apiKey); 
   }
 
+  public static function register() {
+        $class = get_class();
+        $url = self::classUrl($class);
+        $url .= "/register";
+        $requestor = new Pushpress_ApiRequestor();
+        list($response, $apiKey) = $requestor->request('post', $url);
+        return Pushpress_Util::convertToPushpressObject($response, $apiKey); 
+  }
+
   public static function locations() {
     return true;
         $class = get_class();
